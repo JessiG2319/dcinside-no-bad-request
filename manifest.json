@@ -1,0 +1,21 @@
+{
+	
+  "manifest_version": 2,
+  "name": "dcinside no bad request",
+  "version": "1.0",
+  "permissions": ["*://dcinside.com/*", "*://*.dcinside.com/*", "cookies"],
+  "homepage_url": "https://github.com/xisuthros/dcinside-no-bad-request",
+  "icons": {
+    "32": "icons/dcinside.ico"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://dcinside.com/*", "*://*.dcinside.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+  
+}
