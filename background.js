@@ -1,9 +1,9 @@
 'use strict';
 
 browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
-	let now = Date.now();
+  let now = Date.now();
 
-	browser.cookies.getAll({ domain: "dcinside.com" }).then((cookies) => {
+  browser.cookies.getAll({ domain: "dcinside.com" }).then((cookies) => {
     let promises = [];
     cookies.forEach((cookie) => {
       if (!cookie.session && cookie.expirationDate * 1000 < now) {
@@ -12,8 +12,8 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
     });
     return Promise.allSettled(promises);
   }).then((values) => {
-		sendResponse(values);
-	});
+    sendResponse(values);
+  });
 
-	return true;
+  return true;
 });
